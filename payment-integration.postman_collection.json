@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "16c3094d-ad87-426f-aaac-6bc84841dff9",
+		"name": "payment-integration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20841766"
+	},
+	"item": [
+		{
+			"name": "Payment Bank Transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"order_id\"      : \"order-Edjh387js\",\r\n    \"bank_transfer\" : \"bni\",\r\n    \"amount\"        : 200000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/payment_bank_transfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"payment_bank_transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
