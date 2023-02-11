@@ -43,6 +43,36 @@ app.post('/payment_bank_transfer', async (req, res) => {
      
 })
 
+app.get('/transaction_status/:transaction_id', async (req, res) => {
+    
+    const transactionId = req.params['transaction_id']
+
+    try {
+        
+        const status = await core.transaction.status(transactionId)
+
+        let orderId = status.order_id;
+        let transactionStatus = status.transaction_status;
+
+        res.json({
+            status: 'ok',
+            message: 'success',
+            data: {
+                order_id: orderId,
+                transaction_status: transactionStatus
+            }
+        })
+
+    } catch (error) {
+        console.log(error.message)
+        res.status(400).json({
+            status: 'fail',
+            message: error.message  
+        })
+    }
+     
+})
+
 
 
 app.listen(port, host, () => {
